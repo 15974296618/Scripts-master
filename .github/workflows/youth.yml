@@ -19,18 +19,10 @@ jobs:
         YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
         YOUTH_REDBODY: ${{ secrets.YOUTH_REDBODY }}
         YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
-        YOUTH_HEADER2: ${{ secrets.YOUTH_HEADER2 }}
-        YOUTH_ARTBODY2: ${{ secrets.YOUTH_ARTBODY2 }}
-        YOUTH_REDBODY2: ${{ secrets.YOUTH_REDBODY2 }}
-        YOUTH_TIME2: ${{ secrets.YOUTH_TIME2 }}
-        YOUTH_HEADER3: ${{ secrets.YOUTH_HEADER3 }}
-        YOUTH_ARTBODY3: ${{ secrets.YOUTH_ARTBODY3 }}
-        YOUTH_REDBODY3: ${{ secrets.YOUTH_REDBODY3 }}
-        YOUTH_TIME3: ${{ secrets.YOUTH_TIME3 }}
     steps:
       - name: Checkout
         run: |
-          
+          git clone https://github.com/Sunert/Scripts.git ~/Scripts
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
@@ -45,38 +37,6 @@ jobs:
         run: |
           cd ~/Scripts
           node Task/youth.js
-          
-       env:
-        YOUTH_NOTIFY_CONTROL: ${{ secrets.YOUTH_NOTIFY_CONTROL }}
-        PUSH_KEY: ${{ secrets.PUSH_KEY }}
-        BARK_PUSH: ${{ secrets.BARK_PUSH }}
-        TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-        TG_USER_ID: ${{ secrets.TG_USER_ID }}
-        BARK_SOUND: ${{ secrets.BARK_SOUND }}
-        DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-        DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-
-      - name: '运行 【中青看点二】'
-        if: env.YOUTH_HEADER2
-        run: |
-          cd ~/Scripts
-          node Task/youth.js
-       env:
-        YOUTH_NOTIFY_CONTROL: ${{ secrets.YOUTH_NOTIFY_CONTROL }}
-        PUSH_KEY: ${{ secrets.PUSH_KEY }}
-        BARK_PUSH: ${{ secrets.BARK_PUSH }}
-        TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-        TG_USER_ID: ${{ secrets.TG_USER_ID }}
-        BARK_SOUND: ${{ secrets.BARK_SOUND }}
-        DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-        DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          
-      - name: '运行 【中青看点三】'
-        if: env.YOUTH_HEADER3
-        run: |
-          cd ~/Scripts
-          node Task/youth.js
-          
         env:
           YOUTH_NOTIFY_CONTROL: ${{ secrets.YOUTH_NOTIFY_CONTROL }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
