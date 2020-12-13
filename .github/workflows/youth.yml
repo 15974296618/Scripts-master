@@ -19,6 +19,14 @@ jobs:
         YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
         YOUTH_REDBODY: ${{ secrets.YOUTH_REDBODY }}
         YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
+        YOUTH_HEADER2: ${{ secrets.YOUTH_HEADER2 }}
+        YOUTH_ARTBODY2: ${{ secrets.YOUTH_ARTBODY2 }}
+        YOUTH_REDBODY2: ${{ secrets.YOUTH_REDBODY2 }}
+        YOUTH_TIME2: ${{ secrets.YOUTH_TIME2 }}
+        YOUTH_HEADER3: ${{ secrets.YOUTH_HEADER3 }}
+        YOUTH_ARTBODY3: ${{ secrets.YOUTH_ARTBODY3 }}
+        YOUTH_REDBODY3: ${{ secrets.YOUTH_REDBODY3 }}
+        YOUTH_TIME3: ${{ secrets.YOUTH_TIME3 }}
     steps:
       - name: Checkout
         run: |
@@ -37,6 +45,17 @@ jobs:
         run: |
           cd ~/Scripts
           node Task/youth.js
+      - name: '运行 【中青看点二】'
+        if: env.YOUTH_HEADER2
+        run: |
+          cd ~/Scripts
+          node Task/youth.js
+      - name: '运行 【中青看点三】'
+        if: env.YOUTH_HEADER3
+        run: |
+          cd ~/Scripts
+          node Task/youth.js
+          
         env:
           YOUTH_NOTIFY_CONTROL: ${{ secrets.YOUTH_NOTIFY_CONTROL }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
