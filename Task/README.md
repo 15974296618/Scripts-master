@@ -1,32 +1,43 @@
+# 关于本仓库 ***Actions Secrets*** 配置说明 :   <br>
+ 
+ <br><br>
 
-#本仓库不再维护
-
-
-
-## 免责声明: 
-
-* 本仓库发布的Script项目中涉及的任何解锁和解密分析脚本，仅用于测试和学习研究，不能保证其合法性，准确性，完整性和有效性，请根据情况自行判断.
-
-* Sunert对任何脚本问题概不负责，包括但不限于由任何脚本错误导致的任何损失或损害.
-
-* 间接使用脚本的任何用户，包括但不限于建立VPS或在某些行为违反国家/地区法律或相关法规的情况下进行传播, Sunert 对于由此引起的任何隐私泄漏或其他后果概不负责.
-
-* 请勿将Script项目的任何内容用于商业或非法目的，否则后果自负.
-
-* 如果任何单位或个人认为该项目的脚本可能涉嫌侵犯其权利，则应及时通知并提供身份证明，所有权证明，我们将在收到认证文件后删除相关脚本.
-
-* 任何以任何方式查看此项目的人或直接或间接使用该Script项目的任何脚本的使用者都应仔细阅读此声明。Sunert保留随时更改或补充此免责声明的权利。一旦使用并复制了任何相关脚本或Script项目的规则，则视为您已接受此免责声明.
-
-##### 您必须在下载后的24小时内从计算机或手机中完全删除以上内容.
-***您使用或者复制了本仓库且本人制作的任何脚本，则视为`已接受`此免责声明，请仔细阅读***
-
-####开发者不易,请赏杯茶水费
-<div align=center><img width="200" height="200" src="https://gitee.com/Sunert/ProxyConfig/raw/master/QuantumultX/Rules/Images/Complimentcode.jpeg"/></div>
-
-
-### 特别感谢：
-* [@NobyDa](https://github.com/NobyDa)
-
-* [@chavyleung](https://github.com/chavyleung)
-
-
+ | Name | 脚本/相关YML | Value分割符 | 必须/可选 | 注意事项及样式   (其中"xxx"代表任意字符) |
+| :---: | :---: | :--------------: | :---: |
+ | YOUTH_HEADER | **中青看点**   youth.yml|  #  | 必须 | 请求地址:  "https://kd.youth.cn/TaskCenter/getSign"，  <br>中青签到请求头: { xxx } |
+ | YOUTH_ARTBODY | 同上 | & | 必须 | 请求地址: "https://ios.baertt.com/v5/article/complete"， <br>阅读请求体: p=xxx |
+ | YOUTH_REDBODY | 同上 | & | 必须 | 请求地址: "https://ios.baertt.com/v5/article/red_packet"， <br>惊喜红包请求体: p=xxx |
+ | YOUTH_TIME | 同上 | & | 必须 | 请求地址: "https://ios.baertt.com/v5/user/app_stay.json"，  <br>阅读时长请求体: p=xxx |
+ | YOUTH_NOTIFY_CONTROL | 同上 | true/false | 可选 | 中青通知开关 <br>默认当转盘次数为50或者100并且余额大于10元时推送通知 |
+ |  |  |  | - |  |
+  | YOUTH_READ | **中青阅读** youth_read.yml| &或者换行 | 必须 | 请求地址: "https://ios.baertt.com/v5/article/complete"，  <br>阅读请求体: p=xxx |
+ |  |  |  | - |  |
+ | TXNEWS_COOKIE | **腾讯新闻** txnews.yml| & | 必须 | 请求地址: "https://api.inews.qq.com/event/v1/user/event/report?"，  <br>腾讯新闻 Cookie: openxx=xxx |
+  | TXNEWS_SIGN | 同上 | # | 必须 | 请求地址同上， 阅读请求地址链接 |
+  | TXNEWS_VIDEO | 同上 | # | 必须 | 请求地址同上， 视频请求地址链接 |
+   | TXNEWS_NOTIFY_CONTROL | 同上 | true/false | 可选 | 腾讯新闻通知开关 <br>默认当余额大于2元且通知间隔为50时推送通知 |
+ |  |  |  | - |  |
+  | DSJ_HEADERS | **电视家** dianshijia.yml | #或换行 | 必须 | 请求地址: "http://api.gaoqingdianshi.com/api/v2/sign/signin"， <br>签到请求头: { xxx } |
+  | DSJ_DRAWAL | 同上 | #或换行 | 必须 | 请求地址: "http://api.gaoqingdianshi.com/api/v2/cash/withdrawal"， <br>即提现请求地址 |
+   | DSJ_NOTIFY_CONTROL | 同上 | true/false | 可选 | 电视家通知开关 <br>默认不推送 |
+ |  |  |  | - |  |
+  | WB_TOKEN | **新浪微博** weibo.yml | #或换行 | 必须 | 请求地址: "https://api.weibo.cn/xxx?gsid="， <br>签到token: gsid=xxx |
+  | WB_PAY | 同上 | #或换行 | 必须 | 请求地址: "https://pay.sc.weibo.com/aj/mobile/home/welfare/signin/do"， <br> 提现请求头 |
+ |  |  |  | - |  |
+   | JD_COOKIE | **京喜** <br>jingxi.yml | &或换行| 必须 | 京东cookie,多个账号的cookie使用`&`隔开或者换行。具体获取参考[浏览器获取京东cookie教程](https://github.com/lxk0301/scripts/blob/master/backUp/GetJdCookie.md) 或者 [插件获取京东cookie教程](https://github.com/lxk0301/scripts/blob/master/backUp/GetJdCookie2.md) |
+   |  |  |  | - |  |
+      | PUSH_KEY | 微信推送 | - | 可选 | cookie失效推送[server酱的微信通知](http://sc.ftqq.com/3.version) |
+    | BARK_PUSH | BARK推送 | - | 可选 | cookie失效推送BARK这个APP,填写内容是app提供的`设备码`，例如：https://api.day.app/123 ，那么此处的设备码就是`123`，再不懂看 [这个图](icon/bark.jpg) |
+    | BARK_SOUND | BARK推送 | - | 可选 | bark推送声音设置，例如`choo`,具体值请在`bark`-`推送铃声`-`查看所有铃声` |
+    | TG_BOT_TOKEN | telegram推送 | - | 可选 | tg推送,填写自己申请[@BotFather](https://t.me/BotFather)的Token,如`10xxx4:AAFcqxxxxgER5uw` , [具体教程](https://github.com/lxk0301/scripts/pull/37#issuecomment-692415594) |
+    | TG_USER_ID | telegram推送 | - | 可选 | tg推送,填写[@getuseridbot](https://t.me/getuseridbot)中获取到的纯数字ID, [具体教程](https://github.com/lxk0301/scripts/pull/37#issuecomment-692415594) |
+    | DD_BOT_TOKEN | 钉钉推送 | - | 可选 | 钉钉推送[官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq) ,只需`https://oapi.dingtalk.com/robot/send?access_token=XXX` 等于符号后面的XXX， 注：如果钉钉推送只填写`DD_BOT_TOKEN`，那么安全设置需勾选`自定义关键词`，内容输入输入`账号`即可，其他安全设置不要勾选 |
+    | DD_BOT_SECRET |   钉钉推送 | - | 可选 | 密钥，机器人安全设置页面，加签一栏下面显示的SEC开头的字符串 , 注:填写了`DD_BOT_TOKEN`和`DD_BOT_SECRET`，钉钉机器人安全设置只需勾选`加签`即可，其他选项不要勾选,再不懂看 [这个图](icon/DD_bot.png) |
+    
+   # 以上为配置方法详见[@lxk0301](https://raw.githubusercontent.com/lxk0301/scripts/master/githubAction.md)
+   
+   ## ***感谢***
+        * [@lxk0301](https://t.me/lxk0301)
+        * [@chavy](https://t.me/chavyleung)
+   
+  
